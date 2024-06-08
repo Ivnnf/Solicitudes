@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "strict": true,
+    "jsx": "react",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "@popperjs/core": [ "node_modules/@popperjs/core/lib/index.js" ],
+      "@popperjs/core/lib/*": [ "node_modules/@popperjs/core/lib/*" ],
+      "@/*": [ "src/*" ]
+    }
+  },
+  "include": [ "src" ],
+  "exclude": [ "node_modules" ]
+}

@@ -1,0 +1,10 @@
+{
+"SpaProxyServer": {
+"ServerUrl": "https://localhost:5173",
+"RedirectUrl": "",
+"LaunchCommand": "npm run dev",
+"WorkingDirectory": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\Necesidades02.Server\\..\\necesidades02.client",
+"MaxTimeoutInSeconds": "120",
+"KeepRunning": "false"
+}
+}

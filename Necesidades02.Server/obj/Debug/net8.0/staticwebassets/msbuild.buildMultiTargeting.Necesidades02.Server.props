@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Necesidades02.Server.props" />
+</Project>
