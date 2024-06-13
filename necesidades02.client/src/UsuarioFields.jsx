@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import TipoSolicitudFields from './TipoSolicitudList';
 import DepartamentoFields from './DepartamentoFields';
 import TipoSolicitudList from './TipoSolicitudList';
 
@@ -20,7 +19,6 @@ const UsuarioFields = ({ userId }) => {
         const fetchUsuario = async (id) => {
             setIsFetching(true);
             try {
-                // Cambia la URL para que use el proxy
                 const response = await axios.get(`http://localhost:8081/api/usuario/${id}`);
                 setFormData(response.data);
             } catch (error) {
@@ -42,8 +40,19 @@ const UsuarioFields = ({ userId }) => {
             [name]: value,
         });
     };
+
     return isFetching ? (
-        <p>Cargando...</p>
+        <div className="loader"> {/* Cambiar `class` a `className` */}
+            <div className="square" id="sq1"></div>
+            <div className="square" id="sq2"></div>
+            <div className="square" id="sq3"></div>
+            <div className="square" id="sq4"></div>
+            <div className="square" id="sq5"></div>
+            <div className="square" id="sq6"></div>
+            <div className="square" id="sq7"></div>
+            <div className="square" id="sq8"></div>
+            <div className="square" id="sq9"></div>
+        </div>
     ) : (
         <div className="container mt-5">
             <div className="form-group">

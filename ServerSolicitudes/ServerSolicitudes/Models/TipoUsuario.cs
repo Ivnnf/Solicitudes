@@ -1,8 +1,9 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Necesidades02.Server.Models;
+namespace ServerSolicitudes.Models;
 
 public partial class TipoUsuario
 {

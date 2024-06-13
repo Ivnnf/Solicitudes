@@ -1,8 +1,10 @@
-﻿using System;
+﻿
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Necesidades02.Server.Models;
+namespace ServerSolicitudes.Models;
 
 public partial class Solicitud
 {
@@ -20,9 +22,6 @@ public partial class Solicitud
     public int Cantidad { get; set; }
 
     public string? Descripcion { get; set; }
-
-    [Column("Comentarios_Adicionales")]
-    public string? ComentariosAdicionales { get; set; }
 
     public DateTime Fecha { get; set; }
 

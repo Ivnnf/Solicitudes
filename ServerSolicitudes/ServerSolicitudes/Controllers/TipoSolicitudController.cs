@@ -2,7 +2,7 @@
 using ServerSolicitudes.Models; // Cambia a la ruta correcta de tu modelo y DbContext
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
-using Necesidades02.Server.Models;
+
 
 namespace ServerSolicitudes.Controllers
 {

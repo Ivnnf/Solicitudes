@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ServerSolicitudes.Models;
 
 
 
 
-namespace Necesidades02.Server.Models
+
+namespace ServerSolicitudes.Models
 {
 
 
@@ -105,8 +105,6 @@ namespace Necesidades02.Server.Models
                 entity.Property(e => e.Descripcion)
                     .HasMaxLength(250);
 
-                entity.Property(e => e.ComentariosAdicionales)
-                    .HasMaxLength(250);
 
                 entity.HasOne(d => d.IdTipoSolicitudNavigation)
                     .WithMany(p => p.Solicituds)
@@ -132,6 +130,8 @@ namespace Necesidades02.Server.Models
 
             modelBuilder.Entity<EquipamientoEspecifico>(entity =>
             {
+                entity.ToTable("EquipamientoEspecifico");
+
                 entity.HasKey(e => e.IdEquipEspec);
 
                 entity.Property(e => e.Glosa)

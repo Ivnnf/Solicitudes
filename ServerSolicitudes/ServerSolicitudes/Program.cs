@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using ServerSolicitudes.Models;
-using Necesidades02.Server.Models;
 using ServerSolicitudes.Controllers;
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
@@ -12,6 +11,9 @@ using Microsoft.AspNetCore.Mvc;
 
 // <snippet_DI>
 var builder = WebApplication.CreateBuilder(args);
+
+
+
 builder.Services.AddControllers();
 builder.Services.AddCors(options =>
 {
@@ -22,6 +24,12 @@ builder.Services.AddCors(options =>
               .AllowAnyHeader()
               .AllowAnyHeader();
     });
+});
+
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+    options.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
 });
 
 
@@ -83,25 +91,6 @@ app.MapPost("/solicitudes", async (Solicitud solicitud, NecesidadesContext db) =
     return Results.Created($"/todoitems/{solicitud.IdSolicitud}", solicitud);
 });
 
-
-
-/*app.MapGet("/usuarios/{id}", async (int id, NecesidadesContext db) =>
-    await db.Usuarios.FindAsync(id)
-        is Usuario user
-            ? Results.Ok(user)
-            : Results.NotFound());*/
-
-/*
-app.MapGet("/tipoSolicitud", async (NecesidadesContext necesidadesContext) =>
-    await necesidadesContext.TipoSolicitudes.ToListAsync());*/
-/*
-app.MapGet("/departamentos", async (NecesidadesContext db) =>
-    await db.Departamentos.ToListAsync());
-    */
-
-
-
-
 app.MapGet("/todoitems/complete", async (TodoDb db) =>
     await db.Todos.Where(t => t.IsComplete).ToListAsync());
 
@@ -154,8 +143,26 @@ app.MapDelete("/todoitems/{id}", async (int id, TodoDb db) =>
 });
 // </snippet_delete>
 
+/*app.MapGet("/usuarios/{id}", async (int id, NecesidadesContext db) =>
+    await db.Usuarios.FindAsync(id)
+        is Usuario user
+            ? Results.Ok(user)
+            : Results.NotFound());*/
+
+/*
+app.MapGet("/tipoSolicitud", async (NecesidadesContext necesidadesContext) =>
+    await necesidadesContext.TipoSolicitudes.ToListAsync());*/
+/*
+app.MapGet("/departamentos", async (NecesidadesContext db) =>
+    await db.Departamentos.ToListAsync());
+    */
 
 
+
+
+
+
+app.UseStaticFiles();
 
 app.MapControllers();
 

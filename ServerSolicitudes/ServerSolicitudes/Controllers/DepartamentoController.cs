@@ -2,7 +2,7 @@
 using ServerSolicitudes.Models; // Asegúrate de usar el namespace correcto de tu DbContext
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
-using Necesidades02.Server.Models;
+
 
 namespace ServerSolicitudes.Controllers
 {

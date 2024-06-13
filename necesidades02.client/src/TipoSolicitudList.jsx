@@ -8,7 +8,6 @@ const TipoSolicitudList = ({ onSelect }) => {
     useEffect(() => {
         const fetchTipoSolicitudes = async () => {
             try {
-                // Verifica que la URL es correcta y que la API está devolviendo los datos correctos
                 const response = await axios.get('http://localhost:8081/api/tipoSolicitud');
                 console.log('Datos recibidos:', response.data); // Verifica los datos en la consola
                 setTipoSolicitudes(response.data);
@@ -29,7 +28,19 @@ const TipoSolicitudList = ({ onSelect }) => {
     };
 
     if (isLoading) {
-        return <p>Cargando...</p>;
+        return (
+            <div className="loader"> {/* Cambiar `class` a `className` */}
+                <div className="square" id="sq1"></div>
+                <div className="square" id="sq2"></div>
+                <div className="square" id="sq3"></div>
+                <div className="square" id="sq4"></div>
+                <div className="square" id="sq5"></div>
+                <div className="square" id="sq6"></div>
+                <div className="square" id="sq7"></div>
+                <div className="square" id="sq8"></div>
+                <div className="square" id="sq9"></div>
+            </div>
+        );
     }
 
     return (

@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 
-namespace Necesidades02.Server.Models;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ServerSolicitudes.Models;
 
 public partial class EquipamientoEspecifico
 {
+    [Column("Id_Equip_Espec")]
     public int IdEquipEspec { get; set; }
-
+    [Column("Id_Especificacion")]
     public int IdEspecificacion { get; set; }
 
     public string Glosa { get; set; } = null!;
