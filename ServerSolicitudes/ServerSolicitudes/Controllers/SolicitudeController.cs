@@ -5,7 +5,7 @@ namespace ServerSolicitudes.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class Solicitudes : ControllerBase
+    public class SolicitudeController : ControllerBase
     {
 
         [HttpGet]
@@ -13,7 +13,7 @@ namespace ServerSolicitudes.Controllers
         {
             // Lógica para obtener las solicitudes
             // Por ejemplo, aquí podrías retornar una lista de solicitudes
-            var data = new { nombre = "Cristhian" };
+            var data = new { nombre = "00" };
             return Ok(data);
         }
     }

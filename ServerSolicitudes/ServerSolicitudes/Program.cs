@@ -1,18 +1,18 @@
 using Microsoft.EntityFrameworkCore;
 using ServerSolicitudes.Models;
-
-
-
-// <snippet_all>
-using Microsoft.EntityFrameworkCore;
 using Necesidades02.Server.Models;
 using ServerSolicitudes.Controllers;
 using System.Text.Json;
-using ServerSolicitudes0.Server.Models;
+using Microsoft.AspNetCore.Mvc;
+
+
+
+
+
 
 // <snippet_DI>
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddControllers();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
@@ -48,9 +48,7 @@ app.MapGet("/departamentos/{id}", async(int id, NecesidadesContext db) =>
         is Departamento depto
             ? Results.Ok(depto)
             : Results.NotFound());
-app.MapGet("/departamentos", async (NecesidadesContext db) =>
-    await db.Departamentos.ToListAsync());
-      
+
 
 
 app.MapGet("/solicitudesByType/{idTipoSolicitud}", async (int idTipoSolicitud, NecesidadesContext dbContext) =>
@@ -61,8 +59,8 @@ app.MapGet("/solicitudesByType/{idTipoSolicitud}", async (int idTipoSolicitud, N
     return solicitudes.ToList();
 });
 
-app.MapGet("/tipoSolicitud", async (NecesidadesContext necesidadesContext) =>
-    await necesidadesContext.TipoSolicitudes.ToListAsync());
+
+
 
 app.MapPut("/solicitudes/{id}", async (int id, Solicitud inputSolicitud, NecesidadesContext db) =>
 {
@@ -85,12 +83,21 @@ app.MapPost("/solicitudes", async (Solicitud solicitud, NecesidadesContext db) =
     return Results.Created($"/todoitems/{solicitud.IdSolicitud}", solicitud);
 });
 
-app.MapGet("/usuarios/{id}", async (int id, NecesidadesContext db) =>
+
+
+/*app.MapGet("/usuarios/{id}", async (int id, NecesidadesContext db) =>
     await db.Usuarios.FindAsync(id)
         is Usuario user
             ? Results.Ok(user)
-            : Results.NotFound());
+            : Results.NotFound());*/
 
+/*
+app.MapGet("/tipoSolicitud", async (NecesidadesContext necesidadesContext) =>
+    await necesidadesContext.TipoSolicitudes.ToListAsync());*/
+/*
+app.MapGet("/departamentos", async (NecesidadesContext db) =>
+    await db.Departamentos.ToListAsync());
+    */
 
 
 
@@ -146,6 +153,12 @@ app.MapDelete("/todoitems/{id}", async (int id, TodoDb db) =>
     return Results.NotFound();
 });
 // </snippet_delete>
+
+
+
+
+app.MapControllers();
+
 
 app.Run();
 

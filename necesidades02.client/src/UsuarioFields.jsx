@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import TipoSolicitudFields from './TipoSolicitudFields';
+import TipoSolicitudFields from './TipoSolicitudList';
 import DepartamentoFields from './DepartamentoFields';
+import TipoSolicitudList from './TipoSolicitudList';
 
 const UsuarioFields = ({ userId }) => {
     const [isFetching, setIsFetching] = useState(false);
@@ -16,10 +17,11 @@ const UsuarioFields = ({ userId }) => {
     const [selectedOption, setSelectedOption] = useState('');
 
     useEffect(() => {
-        const fetchUsuario = async (idUser = 6) => {
+        const fetchUsuario = async (id) => {
             setIsFetching(true);
             try {
-                const response = await axios.get(`http://localhost:8081/usuarios/${idUser}`);
+                // Cambia la URL para que use el proxy
+                const response = await axios.get(`http://localhost:8081/api/usuario/${id}`);
                 setFormData(response.data);
             } catch (error) {
                 console.error('Error al obtener el usuario:', error);
@@ -28,8 +30,10 @@ const UsuarioFields = ({ userId }) => {
             }
         };
 
-        fetchUsuario();
-    }, []);
+        if (userId) {
+            fetchUsuario(userId);
+        }
+    }, [userId]);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -38,9 +42,8 @@ const UsuarioFields = ({ userId }) => {
             [name]: value,
         });
     };
-
     return isFetching ? (
-        <p>Loading...</p>
+        <p>Cargando...</p>
     ) : (
         <div className="container mt-5">
             <div className="form-group">
@@ -88,8 +91,8 @@ const UsuarioFields = ({ userId }) => {
                     required
                 />
             </div>
-            <DepartamentoFields />
-            <TipoSolicitudFields selectedOption={selectedOption} setSelectedOption={setSelectedOption} />
+            <DepartamentoFields selectedOptionDep={selectedOption} setSelectedOptionDep={setSelectedOption} />
+            <TipoSolicitudList />
         </div>
     );
 };

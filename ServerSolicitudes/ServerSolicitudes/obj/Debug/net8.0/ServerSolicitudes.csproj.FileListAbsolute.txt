@@ -274,3 +274,4 @@ C:\Users\iftam\source\repos\Necesidades02\ServerSolicitudes\ServerSolicitudes\ob
 C:\Users\iftam\source\repos\Necesidades02\ServerSolicitudes\ServerSolicitudes\obj\Debug\net8.0\ServerSolicitudes.pdb
 C:\Users\iftam\source\repos\Necesidades02\ServerSolicitudes\ServerSolicitudes\obj\Debug\net8.0\ServerSolicitudes.genruntimeconfig.cache
 C:\Users\iftam\source\repos\Necesidades02\ServerSolicitudes\ServerSolicitudes\obj\Debug\net8.0\ref\ServerSolicitudes.dll
+C:\Users\iftam\source\repos\Necesidades02\ServerSolicitudes\ServerSolicitudes\obj\Debug\net8.0\ServerSolicitudes.sourcelink.json

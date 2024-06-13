@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ServerSolicitudes0.Server.Models;
+namespace ServerSolicitudes.Models;
 
 public partial class Departamento
 {

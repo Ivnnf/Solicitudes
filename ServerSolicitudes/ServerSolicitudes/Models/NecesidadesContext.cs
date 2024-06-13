@@ -1,8 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ServerSolicitudes0.Server.Models;
+using ServerSolicitudes.Models;
+
+
+
 
 namespace Necesidades02.Server.Models
 {
+
+
     public partial class NecesidadesContext : DbContext
     {
         public NecesidadesContext(DbContextOptions<NecesidadesContext> options)
