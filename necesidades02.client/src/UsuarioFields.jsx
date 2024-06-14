@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import DepartamentoFields from './DepartamentoFields';
+import DepartamentoList from './DepartamentoList';
 import TipoSolicitudList from './TipoSolicitudList';
+import EspecificacionesList from './Especificaciones'
 
 const UsuarioFields = ({ userId }) => {
     const [isFetching, setIsFetching] = useState(false);
@@ -14,6 +15,7 @@ const UsuarioFields = ({ userId }) => {
     });
 
     const [selectedOption, setSelectedOption] = useState('');
+    const [selectedTipoSolicitud,setSelectedTipoSolicitud] =useState(null);
 
     useEffect(() => {
         const fetchUsuario = async (id) => {
@@ -40,6 +42,11 @@ const UsuarioFields = ({ userId }) => {
             [name]: value,
         });
     };
+
+    const onSelectedTipoSolicitud=(selectOption)=>{
+        setSelectedTipoSolicitud(selectOption);
+    }
+
 
     return isFetching ? (
         <div className="loader"> {/* Cambiar `class` a `className` */}
@@ -100,8 +107,9 @@ const UsuarioFields = ({ userId }) => {
                     required
                 />
             </div>
-            <DepartamentoFields selectedOptionDep={selectedOption} setSelectedOptionDep={setSelectedOption} />
-            <TipoSolicitudList />
+            <DepartamentoList selectedOptionDep={selectedOption} setSelectedOptionDep={setSelectedOption} />
+            <TipoSolicitudList onSelect={onSelectedTipoSolicitud} />
+            {selectedTipoSolicitud && <EspecificacionesList idTipoSolicitud={selectedTipoSolicitud.idTipoSolicitud}/>}
         </div>
     );
 };

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { CardHeader, Container, Row, Col, Card, CardBody } from "reactstrap";
-import TablaSolicitud from './TablaSolicitud';
+import TablaSolicitud from "./TablaSolicitud";
 import PropTypes from 'prop-types';
 
 const SolicitudesList = ({ userId }) => {

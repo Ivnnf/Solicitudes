@@ -1,21 +1,62 @@
-/* styles.css */
 
-/* Color Elementos NAVBAR*/
-.navbar-brand {
-    color: #158507 !important;
 
+/* Ajuste de la barra de navegación */
+.custom-navbar {
+    display: flex;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center;
+    background-color: #3089e2;
+    padding: 10px;
+    flex-wrap: nowrap; /* Asegura que los elementos no se envuelvan a la siguiente línea */
 }
 
-.custom-navbar .nav-link {
-    color: white;
+.navbar-nav {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px; /* Espacio entre los enlaces */
 }
 
-.custom-navbar .nav-link:hover {
-    color: #FFD700;
+.nav-item {
+    display: inline-block; /* Asegura que cada elemento esté en línea */
+    align-items: center;
+}
+
+.nav-link {
+    color: #f30707;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #dddddd;
+}
+
+/* Estilo para el enlace activo */
+.nav-link.active {
+    color: #ffffff; /* Color blanco para el enlace activo */
+    background-color: #0056b3; /* Fondo azul más oscuro para el enlace activo */
+    border-radius: 5px; /* Bordes redondeados para el enlace activo */
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+        align-items: center;
+    }
+
+    .nav-link {
+        margin: 5px 0; /* Ajusta el margen en pantallas pequeñas */
+    }
 }
 
 
-/* cargando */
+
+/* Animacion cargando */
 @keyframes loader_5191 {
     from {
         opacity: 0;
@@ -83,4 +124,122 @@
     margin-top: 15px;
     margin-left: 15px;
     animation: loader_5191 675ms ease-in-out 600ms infinite;
+}
+
+
+/* Boton Editar */
+
+/* Contenedor para los botones */
+.button-container {
+    display: flex;
+    gap: 10px; /* Espacio entre los botones */
+}
+.Btn-01 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 105px;
+    height: 33px;
+    border: none;
+    padding: 0px 10px;
+    background-color: rgb(168, 38, 255);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0px rgb(140, 32, 212);
+    transition-duration: .3s;
+}
+
+.svg-01 {
+    width: 13px;
+    position: absolute;
+    right: 0;
+    margin-right: 15px;
+    fill: white;
+    transition-duration: .3s;
+}
+
+.Btn-01:hover {
+    color: transparent;
+}
+
+.Btn-01:hover svg {
+    right: 43%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    transition-duration: .3s;
+}
+
+.Btn-01:active {
+    transform: translate(3px, 3px);
+    transition-duration: .3s;
+    box-shadow: 2px 2px 0px rgb(140, 32, 212);
+}
+
+
+/* Boton Eliminar Solicitud */
+
+.btn-02 {
+    width: 120px;
+    height: 35px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background: red;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+    background: #e62222;
+}
+
+.btn-02,
+.btn-02 span {
+    transition: 200ms;
+}
+
+.btn-02 .text-02 {
+    transform: translateX(10px);
+    color: white;
+    font-weight: bold;
+}
+
+.btn-02 .icon-02 {
+    position: absolute;
+    border-left: 5px solid #c41b1b;
+    transform: translateX(78px);
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-02 svg {
+    width: 15px;
+    fill: #eee;
+}
+
+.btn-02:hover {
+    background: #ff3636;
+}
+
+.btn-02:hover .text-02 {
+    color: transparent;
+}
+
+.btn-02:hover .icon-02 {
+    width: 105px;
+    border-left: none;
+    transform: translateX(0);
+}
+
+.btn-02:focus {
+    outline: none;
+}
+
+.btn-02:active .icon-02 svg {
+    transform: scale(0.8);
 }

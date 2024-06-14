@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
-const DepartamentoFields = ({ selectedOptionDep, setSelectedOptionDep }) => {
+const DepartamentoList = ({ selectedOptionDep, setSelectedOptionDep }) => {
     const [departamentos, setDepartamentos] = useState([]);
 
     useEffect(() => {
@@ -45,9 +45,9 @@ const DepartamentoFields = ({ selectedOptionDep, setSelectedOptionDep }) => {
     );
 };
 
-DepartamentoFields.propTypes = {
+DepartamentoList.propTypes = {
     selectedOptionDep: PropTypes.string.isRequired,
     setSelectedOptionDep: PropTypes.func.isRequired,
 };
 
-export default DepartamentoFields;
+export default DepartamentoList;
