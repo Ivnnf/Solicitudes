@@ -17,5 +17,5 @@ public partial class EquipamientoEspecifico
 
     public virtual Especificacion IdEspecificacionNavigation { get; set; } = null!;
 
-    public virtual ICollection<Solicitud> Solicituds { get; set; } = new List<Solicitud>();
+    public virtual ICollection<Solicitud> Solicitudes { get; set; } = new List<Solicitud>();
 }

@@ -3,18 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|c:\\users\\iftam\\source\\repos\\necesidades02\\serversolicitudes\\serversolicitudes\\controllers\\equipamientoespecificocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|solutionrelative:controllers\\equipamientoespecificocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|c:\\users\\iftam\\source\\repos\\necesidades02\\serversolicitudes\\serversolicitudes\\controllers\\especificacioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|solutionrelative:controllers\\especificacioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|c:\\users\\iftam\\source\\repos\\necesidades02\\serversolicitudes\\serversolicitudes\\controllers\\departamentocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|solutionrelative:controllers\\departamentocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|c:\\users\\iftam\\source\\repos\\necesidades02\\serversolicitudes\\serversolicitudes\\controllers\\solicitudcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|solutionrelative:controllers\\solicitudcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -23,55 +11,12 @@
       "RelativeMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|solutionrelative:controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|c:\\users\\iftam\\source\\repos\\necesidades02\\serversolicitudes\\serversolicitudes\\controllers\\tiposolicitudcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|solutionrelative:controllers\\tiposolicitudcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|c:\\users\\iftam\\source\\repos\\necesidades02\\serversolicitudes\\serversolicitudes\\models\\necesidadescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|solutionrelative:models\\necesidadescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|c:\\users\\iftam\\source\\repos\\necesidades02\\serversolicitudes\\serversolicitudes\\models\\solicitud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|solutionrelative:models\\solicitud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|c:\\users\\iftam\\source\\repos\\necesidades02\\serversolicitudes\\serversolicitudes\\models\\solicitudto\\solicituddtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|solutionrelative:models\\solicitudto\\solicituddtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|c:\\users\\iftam\\source\\repos\\necesidades02\\serversolicitudes\\serversolicitudes\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|c:\\users\\iftam\\source\\repos\\necesidades02\\serversolicitudes\\serversolicitudes\\models\\equipamientoespecifico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|solutionrelative:models\\equipamientoespecifico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|c:\\users\\iftam\\source\\repos\\necesidades02\\serversolicitudes\\serversolicitudes\\models\\especificacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|solutionrelative:models\\especificacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|c:\\users\\iftam\\source\\repos\\necesidades02\\serversolicitudes\\serversolicitudes\\models\\tipousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|solutionrelative:models\\tipousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|c:\\users\\iftam\\source\\repos\\necesidades02\\serversolicitudes\\serversolicitudes\\models\\dto\\usuariodtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|solutionrelative:models\\dto\\usuariodtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|c:\\users\\iftam\\source\\repos\\necesidades02\\serversolicitudes\\serversolicitudes\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|solutionrelative:models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|c:\\users\\iftam\\source\\repos\\necesidades02\\serversolicitudes\\serversolicitudes\\models\\tiposolicitud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|solutionrelative:models\\tiposolicitud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|c:\\users\\iftam\\source\\repos\\necesidades02\\serversolicitudes\\serversolicitudes\\models\\departamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|solutionrelative:models\\departamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|c:\\users\\iftam\\source\\repos\\necesidades02\\serversolicitudes\\serversolicitudes\\serversolicitudes.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{BD332F96-D2BD-4B15-BCAB-FEA8474B4FF7}|ServerSolicitudes.csproj|solutionrelative:serversolicitudes.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\iftam\\source\\repos\\ServerSolicitudes0\\ServerSolicitudes0.Server\\Models\\TipoSolicitud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -81,229 +26,59 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "EquipamientoEspecificoController.cs",
-              "DocumentMoniker": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Controllers\\EquipamientoEspecificoController.cs",
-              "RelativeDocumentMoniker": "Controllers\\EquipamientoEspecificoController.cs",
-              "ToolTip": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Controllers\\EquipamientoEspecificoController.cs",
-              "RelativeToolTip": "Controllers\\EquipamientoEspecificoController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAA1AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-14T03:32:33.286Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "EspecificacionController.cs",
-              "DocumentMoniker": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Controllers\\EspecificacionController.cs",
-              "RelativeDocumentMoniker": "Controllers\\EspecificacionController.cs",
-              "ToolTip": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Controllers\\EspecificacionController.cs",
-              "RelativeToolTip": "Controllers\\EspecificacionController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-14T02:56:06.655Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "SolicitudController.cs",
-              "DocumentMoniker": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Controllers\\SolicitudController.cs",
-              "RelativeDocumentMoniker": "Controllers\\SolicitudController.cs",
-              "ToolTip": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Controllers\\SolicitudController.cs",
-              "RelativeToolTip": "Controllers\\SolicitudController.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAgwB8AAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T20:44:13.557Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Solicitud.cs",
-              "DocumentMoniker": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Models\\Solicitud.cs",
-              "RelativeDocumentMoniker": "Models\\Solicitud.cs",
-              "ToolTip": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Models\\Solicitud.cs",
-              "RelativeToolTip": "Models\\Solicitud.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAIA3wB8AAAA6AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T20:32:55.169Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TipoSolicitudController.cs",
-              "DocumentMoniker": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Controllers\\TipoSolicitudController.cs",
-              "RelativeDocumentMoniker": "Controllers\\TipoSolicitudController.cs",
-              "ToolTip": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Controllers\\TipoSolicitudController.cs",
-              "RelativeToolTip": "Controllers\\TipoSolicitudController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T20:44:48.057Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "NecesidadesContext.cs",
-              "DocumentMoniker": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Models\\NecesidadesContext.cs",
-              "RelativeDocumentMoniker": "Models\\NecesidadesContext.cs",
-              "ToolTip": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Models\\NecesidadesContext.cs",
-              "RelativeToolTip": "Models\\NecesidadesContext.cs",
-              "ViewState": "AQIAAFYAAAAAAAAAAAAAwGgAAAAyAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T20:34:05.165Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAcAAAAAAAAAAAAAACAAAAADAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T20:33:32.497Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UsuarioController.cs",
-              "DocumentMoniker": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Controllers\\UsuarioController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UsuarioController.cs",
-              "ToolTip": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Controllers\\UsuarioController.cs",
-              "RelativeToolTip": "Controllers\\UsuarioController.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAoAAAA1AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T20:39:39.997Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "EquipamientoEspecifico.cs",
-              "DocumentMoniker": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Models\\EquipamientoEspecifico.cs",
-              "RelativeDocumentMoniker": "Models\\EquipamientoEspecifico.cs",
-              "ToolTip": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Models\\EquipamientoEspecifico.cs",
-              "RelativeToolTip": "Models\\EquipamientoEspecifico.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAgAAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T20:36:44.105Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DepartamentoController.cs",
-              "DocumentMoniker": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Controllers\\DepartamentoController.cs",
-              "RelativeDocumentMoniker": "Controllers\\DepartamentoController.cs",
-              "ToolTip": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Controllers\\DepartamentoController.cs",
-              "RelativeToolTip": "Controllers\\DepartamentoController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T20:44:00.06Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "SolicitudDTOs.cs",
-              "DocumentMoniker": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Models\\SolicituDTO\\SolicitudDTOs.cs",
-              "RelativeDocumentMoniker": "Models\\SolicituDTO\\SolicitudDTOs.cs",
-              "ToolTip": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Models\\SolicituDTO\\SolicitudDTOs.cs",
-              "RelativeToolTip": "Models\\SolicituDTO\\SolicitudDTOs.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T21:41:43.757Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Especificacion.cs",
-              "DocumentMoniker": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Models\\Especificacion.cs",
-              "RelativeDocumentMoniker": "Models\\Especificacion.cs",
-              "ToolTip": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Models\\Especificacion.cs",
-              "RelativeToolTip": "Models\\Especificacion.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T20:34:44.76Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "TipoUsuario.cs",
-              "DocumentMoniker": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Models\\TipoUsuario.cs",
-              "RelativeDocumentMoniker": "Models\\TipoUsuario.cs",
-              "ToolTip": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Models\\TipoUsuario.cs",
-              "RelativeToolTip": "Models\\TipoUsuario.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T20:38:31.918Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
               "Title": "Usuario.cs",
               "DocumentMoniker": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Models\\Usuario.cs",
               "RelativeDocumentMoniker": "Models\\Usuario.cs",
               "ToolTip": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Models\\Usuario.cs",
               "RelativeToolTip": "Models\\Usuario.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAmAAAA",
+              "ViewState": "AQIAABQAAAAAAAAAAAAwwBwAAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T20:39:09.495Z"
+              "WhenOpened": "2024-06-23T02:34:27.445Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "TipoSolicitud.cs",
-              "DocumentMoniker": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Models\\TipoSolicitud.cs",
-              "RelativeDocumentMoniker": "Models\\TipoSolicitud.cs",
-              "ToolTip": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Models\\TipoSolicitud.cs",
-              "RelativeToolTip": "Models\\TipoSolicitud.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAKAAAA",
+              "DocumentIndex": 2,
+              "Title": "UsuarioDTOs.cs",
+              "DocumentMoniker": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Models\\DTO\\UsuarioDTOs.cs",
+              "RelativeDocumentMoniker": "Models\\DTO\\UsuarioDTOs.cs",
+              "ToolTip": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Models\\DTO\\UsuarioDTOs.cs",
+              "RelativeToolTip": "Models\\DTO\\UsuarioDTOs.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAABCAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T20:38:10.451Z"
+              "WhenOpened": "2024-06-23T02:33:26.58Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Departamento.cs",
-              "DocumentMoniker": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Models\\Departamento.cs",
-              "RelativeDocumentMoniker": "Models\\Departamento.cs",
-              "ToolTip": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Models\\Departamento.cs",
-              "RelativeToolTip": "Models\\Departamento.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "DocumentIndex": 0,
+              "Title": "SolicitudController.cs",
+              "DocumentMoniker": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Controllers\\SolicitudController.cs",
+              "RelativeDocumentMoniker": "Controllers\\SolicitudController.cs",
+              "ToolTip": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Controllers\\SolicitudController.cs",
+              "RelativeToolTip": "Controllers\\SolicitudController.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAQwBgAAABMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T20:43:18.419Z"
+              "WhenOpened": "2024-06-23T02:28:58.312Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "ServerSolicitudes.csproj",
-              "DocumentMoniker": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\ServerSolicitudes.csproj",
-              "RelativeDocumentMoniker": "ServerSolicitudes.csproj",
-              "ToolTip": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\ServerSolicitudes.csproj",
-              "RelativeToolTip": "ServerSolicitudes.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-06-13T20:35:32.483Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "TipoSolicitud.cs",
-              "DocumentMoniker": "C:\\Users\\iftam\\source\\repos\\ServerSolicitudes0\\ServerSolicitudes0.Server\\Models\\TipoSolicitud.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\ServerSolicitudes0\\ServerSolicitudes0.Server\\Models\\TipoSolicitud.cs",
-              "ToolTip": "C:\\Users\\iftam\\source\\repos\\ServerSolicitudes0\\ServerSolicitudes0.Server\\Models\\TipoSolicitud.cs",
-              "RelativeToolTip": "..\\..\\..\\ServerSolicitudes0\\ServerSolicitudes0.Server\\Models\\TipoSolicitud.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
+              "DocumentIndex": 1,
+              "Title": "UsuarioController.cs",
+              "DocumentMoniker": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Controllers\\UsuarioController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UsuarioController.cs",
+              "ToolTip": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\Controllers\\UsuarioController.cs",
+              "RelativeToolTip": "Controllers\\UsuarioController.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAAAACoAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-06T03:19:49.759Z"
+              "WhenOpened": "2024-06-23T02:26:15.852Z",
+              "EditorCaption": ""
             }
           ]
         }

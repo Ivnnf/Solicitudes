@@ -1,32 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ServerSolicitudes.Models;
-
-public partial class Usuario
+namespace ServerSolicitudes.Models
 {
-    [Column("Id_Usuario")]
-    public int IdUsuario { get; set; }
-    [Column("Id_Tipo_Usuario")]
-    public int IdTipoUsuario { get; set; }
-    [Column("Id_Departamento")]
-    public int IdDepartamento { get; set; }
-    [Column("Nombre_Completo")]
-    public string NombreCompleto { get; set; } = null!;
-    [Column("Nombre_Usuario")]
-    public string NombreUsuario { get; set; } = null!;
+    public partial class Usuario
+    {
+        [Key]
+        [Column("IdUsuario")]
+        public int IdUsuario { get; set; }
 
-    public string Correo { get; set; } = null!;
+        [Column("Id_Tipo_Usuario")]
+        public int IdTipoUsuario { get; set; }
 
-    public string? Telefono { get; set; }
+        [Column("Nombre_Completo")]
+        [StringLength(100)]
+        public string NombreCompleto { get; set; } = string.Empty;
 
-    public string Contrasena { get; set; } = null!;
+        [Column("Nombre_Usuario")]
+        [StringLength(100)]
+        public string NombreUsuario { get; set; } = string.Empty;
 
-    [ForeignKey(nameof(IdTipoUsuario))]
-    public virtual TipoUsuario IdTipoUsuarioNavigation { get; set; } = null!;
+        [StringLength(100)]
+        public string? Correo { get; set; }
 
-    public virtual ICollection<Solicitud> Solicitudes { get; set; } = new List<Solicitud>();
+        // Relación con TipoUsuario
+        [ForeignKey(nameof(IdTipoUsuario))]
+        [InverseProperty(nameof(TipoUsuario.Usuarios))]
+        public virtual TipoUsuario IdTipoUsuarioNavigation { get; set; } = null!;
 
-
+        public virtual ICollection<Solicitud> Solicitudes { get; set; } = new List<Solicitud>();
+    }
 }

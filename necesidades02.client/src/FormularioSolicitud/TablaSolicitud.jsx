@@ -17,7 +17,9 @@ const TablaSolicitud = ({ data = [], onDelete }) => {
         equipamientoEspecificoNombre: '',
         cantidad: '',
         descripcion: '',
-        fecha: ''
+        fecha: '',
+        nombreSolicitante: '', // Nuevo campo
+        departamentoNombre: '' // Nuevo campo
     });
 
     const toggleModal = () => setModal(!modal);
@@ -181,8 +183,10 @@ const TablaSolicitud = ({ data = [], onDelete }) => {
                     </Form>
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="primary" onClick={handleSave}>Guardar</Button>{' '}
-                    <Button color="secondary" onClick={toggleModal}>Cancelar</Button>
+                    <Button className='btn-03' onClick={handleSave}><b>Guardar</b></Button>
+                        
+
+                    <Button className='btn-04' onClick={toggleModal}><b>Cancelar</b></Button>
                 </ModalFooter>
             </Modal>
         </div>

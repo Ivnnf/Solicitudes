@@ -51,6 +51,8 @@ const EditarSolicitudForm = ({ solicitud, onClose, onSuccess }) => {
             </div>
             
             <button type="submit">Guardar</button>
+
+
             <button type="button" onClick={onClose}>Cancelar</button>
         </form>
     );

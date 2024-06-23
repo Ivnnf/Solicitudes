@@ -5,11 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ServerSolicitudes.Models;
-using System.Collections;
-using ServerSolicitudes.Models.SolicituDTO;
+using ServerSolicitudes.Models.DTO;
 
 namespace ServerSolicitudes.Controllers
-
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -21,71 +19,108 @@ namespace ServerSolicitudes.Controllers
         {
             _context = context;
         }
-        //GET
+
+        // GET: api/solicitud/usuario/{userId}
         [HttpGet("usuario/{userId}")]
         public async Task<IActionResult> GetSolicitudesByUsuario(int userId)
         {
-            var solicitudes = await _context.Solicitudes
-                .Include(s => s.IdTipoSolicitudNavigation)
-                .Include(s => s.IdEspecificacionNavigation)
-                .Include(s => s.IdEquipEspecNavigation)
-                .Where(s => s.IdUsuario == userId)
-                .Select(s => new SolicitudDTOs
-                {
-                    IdSolicitud = s.IdSolicitud,
-                    IdTipoSolicitud = s.IdTipoSolicitud,
-                    TipoSolicitudNombre = s.IdTipoSolicitudNavigation.Glosa,
-                    IdEspecificacion = s.IdEspecificacion,
-                    EspecificacionNombre = s.IdEspecificacionNavigation.Glosa,
-                    IdEquipEspec = s.IdEquipEspec,
-                    EquipamientoEspecificoNombre = s.IdEquipEspecNavigation.Glosa,
-                    Cantidad = s.Cantidad,
-                    Descripcion = s.Descripcion,
-                    Fecha = s.Fecha
-                })
-                .ToListAsync();
+            try
+            {
+                var solicitudesDTO = await _context.Solicitudes
+                    .Where(s => s.IdUsuario == userId)
+                    .Select(s => new SolicitudDTOs
+                    {
+                        IdSolicitud = s.IdSolicitud,
+                        IdTipoSolicitud = s.IdTipoSolicitud,
+                        TipoSolicitudNombre = s.IdTipoSolicitudNavigation != null ? s.IdTipoSolicitudNavigation.Glosa : string.Empty,
+                        IdEspecificacion = s.IdEspecificacion,
+                        EspecificacionNombre = s.IdEspecificacionNavigation != null ? s.IdEspecificacionNavigation.Glosa : string.Empty,
+                        IdEquipEspec = s.IdEquipEspec,
+                        EquipamientoEspecificoNombre = s.IdEquipEspecNavigation != null ? s.IdEquipEspecNavigation.Glosa : string.Empty,
+                        Cantidad = s.Cantidad,
+                        Descripcion = s.Descripcion ?? string.Empty,
+                        Fecha = s.Fecha,
+                        NombreSolicitante = s.NombreSolicitante,
+                        IdUsuario = s.IdUsuario,
+                        UsuarioCorreo = s.IdUsuarioNavigation != null ? s.IdUsuarioNavigation.Correo : string.Empty,
+                        IdUnidadPrincipal = s.IdUnidadPrincipal,
+                        UnidadPrincipalNombre = s.IdUnidadPrincipalNavigation != null ? s.IdUnidadPrincipalNavigation.Glosa : string.Empty,
+                        IdDepartamento = s.IdDepartamento,
+                        DepartamentoNombre = s.IdDepartamentoNavigation != null ? s.IdDepartamentoNavigation.Glosa : string.Empty,
+                        IdSubDepartamento = s.IdSubDepartamento,
+                        SubDepartamentoNombre = s.IdSubDepartamentoNavigation != null ? s.IdSubDepartamentoNavigation.Glosa : string.Empty,
+                        IdEstado = s.IdEstado,
+                        EstadoNombre = s.IdEstadoNavigation != null ? s.IdEstadoNavigation.NombreEstado : string.Empty
+                    })
+                    .ToListAsync();
 
-            return Ok(solicitudes);
+                return Ok(solicitudesDTO);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception (ex) as needed
+                return StatusCode(500, "Internal server error");
+            }
         }
 
 
-
-
-
-        //POST
-        [HttpPost]
-        [Route("Guardar")]
+        // POST: api/solicitud/guardar
+        [HttpPost("guardar")]
         public async Task<IActionResult> Guardar([FromBody] Solicitud request)
         {
-            await _context.Solicitudes.AddAsync(request);
-            await _context.SaveChangesAsync();
+            if (request == null || !ModelState.IsValid)
+            {
+                return BadRequest("Datos inválidos.");
+            }
 
-            return StatusCode(StatusCodes.Status200OK, "ok");
+            if (request.IdTipoSolicitud == 0 ||
+                request.IdEspecificacion == 0 ||
+                request.IdUsuario == 0 ||
+                request.Cantidad <= 0 ||
+                string.IsNullOrEmpty(request.Descripcion))
+            {
+                return BadRequest("Faltan datos o son inválidos.");
+            }
+
+            try
+            {
+                await _context.Solicitudes.AddAsync(request);
+                await _context.SaveChangesAsync();
+
+                return Ok(new { message = "Solicitud guardada con éxito." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error al guardar la solicitud: {ex.Message}");
+            }
         }
 
 
-
-        //PUT
-        [HttpPut]
-        [Route("Editar/{id}")]
+        // PUT: api/solicitud/editar/{id}
+        [HttpPut("editar/{id}")]
         public async Task<IActionResult> Editar(int id, [FromBody] SolicitudDTOs solicitudDTO)
         {
-            var solicitud = await _context.Solicitudes.FindAsync(id);
+            var solicitud = await _context.Solicitudes
+                .Include(s => s.IdUsuarioNavigation)
+                .FirstOrDefaultAsync(s => s.IdSolicitud == id);
 
             if (solicitud == null)
             {
-                return NotFound();
+                return NotFound("Solicitud no encontrada.");
             }
 
-            // Actualizar propiedades
             solicitud.IdTipoSolicitud = solicitudDTO.IdTipoSolicitud;
             solicitud.IdEspecificacion = solicitudDTO.IdEspecificacion;
             solicitud.IdEquipEspec = solicitudDTO.IdEquipEspec;
             solicitud.Cantidad = solicitudDTO.Cantidad;
             solicitud.Descripcion = solicitudDTO.Descripcion;
             solicitud.Fecha = solicitudDTO.Fecha;
+            solicitud.NombreSolicitante = solicitudDTO.NombreSolicitante;
+            solicitud.IdUnidadPrincipal = solicitudDTO.IdUnidadPrincipal;
+            solicitud.IdDepartamento = solicitudDTO.IdDepartamento;
+            solicitud.IdSubDepartamento = solicitudDTO.IdSubDepartamento;
+            solicitud.IdEstado = solicitudDTO.IdEstado;
 
-            // Actualizar en la base de datos
             _context.Solicitudes.Update(solicitud);
             await _context.SaveChangesAsync();
 
@@ -93,114 +128,23 @@ namespace ServerSolicitudes.Controllers
         }
 
 
-
-        //DELETE
-        [HttpDelete]
-        [Route("Eliminar/{id:int}")]
+        // DELETE: api/solicitud/eliminar/{id}
+        [HttpDelete("eliminar/{id:int}")]
         public async Task<IActionResult> Eliminar(int id)
         {
-            Solicitud solicitud = await _context.Solicitudes.FindAsync(id);
-
-            if (solicitud == null)
-            {
-                return NotFound();
-            }
-
-            _context.Solicitudes.Remove(solicitud);
-            await _context.SaveChangesAsync();
-
-            return StatusCode(StatusCodes.Status200OK, "ok");
-        }
-
-        /*
-        // GET: api/Solicitud
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Solicitud>>> GetSolicitudes()
-        {
-            return await _context.Solicitudes
-                                 .Include(s => s.IdEquipEspecNavigation)
-                                 .Include(s => s.IdEspecificacionNavigation)
-                                 .Include(s => s.IdTipoSolicitudNavigation)
-                                 .ToListAsync();
-        }
-
-        // GET: api/Solicitud/{id}
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Solicitud>> GetSolicitud(int id)
-        {
             var solicitud = await _context.Solicitudes
-                                          .Include(s => s.IdEquipEspecNavigation)
-                                          .Include(s => s.IdEspecificacionNavigation)
-                                          .Include(s => s.IdTipoSolicitudNavigation)
-                                          .FirstOrDefaultAsync(s => s.IdSolicitud == id);
+                .FirstOrDefaultAsync(s => s.IdSolicitud == id);
 
             if (solicitud == null)
             {
-                return NotFound();
-            }
-
-            return solicitud;
-        }
-
-        // POST: api/Solicitud
-        [HttpPost]
-        public async Task<ActionResult<Solicitud>> PostSolicitud(Solicitud solicitud)
-        {
-            _context.Solicitudes.Add(solicitud);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetSolicitud), new { id = solicitud.IdSolicitud }, solicitud);
-        }
-
-        // PUT: api/Solicitud/{id}
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutSolicitud(int id, Solicitud solicitud)
-        {
-            if (id != solicitud.IdSolicitud)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(solicitud).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!SolicitudExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // DELETE: api/Solicitud/{id}
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteSolicitud(int id)
-        {
-            var solicitud = await _context.Solicitudes.FindAsync(id);
-            if (solicitud == null)
-            {
-                return NotFound();
+                return NotFound("Solicitud no encontrada.");
             }
 
             _context.Solicitudes.Remove(solicitud);
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return Ok(new { message = "Solicitud eliminada con éxito." });
         }
 
-        private bool SolicitudExists(int id)
-        {
-            return _context.Solicitudes.Any(e => e.IdSolicitud == id);
-        }*/
     }
 }

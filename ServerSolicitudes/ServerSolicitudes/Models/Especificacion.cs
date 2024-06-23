@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServerSolicitudes.Controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
@@ -21,5 +22,5 @@ public partial class Especificacion
 
     public virtual TipoSolicitud IdTipoSolicitudNavigation { get; set; } = null!;
 
-    public virtual ICollection<Solicitud> Solicituds { get; set; } = new List<Solicitud>();
+    public virtual ICollection<Solicitud> Solicitudes { get; set; } = new List<Solicitud>();
 }

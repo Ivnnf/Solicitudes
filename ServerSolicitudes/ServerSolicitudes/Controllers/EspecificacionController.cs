@@ -21,15 +21,18 @@ namespace ServerSolicitudes.Controllers
         [HttpGet("sol/{id}")]
         public async Task<IActionResult> getEspecificacionByTipoSolicitudId(int id)
         {
-            var especificacion = await _context.Especificacions
-                .Where(s => s.IdTipoSolicitud == id)
+            var especificaciones = await _context.Especificaciones
+                .Where(e => e.IdTipoSolicitud == id)
                 .ToListAsync();
-            if (especificacion == null)
+
+            if (especificaciones == null || especificaciones.Count == 0)
             {
                 return NotFound();
             }
-            return Ok(especificacion);
+
+            return Ok(especificaciones);
         }
+
 
 
     }

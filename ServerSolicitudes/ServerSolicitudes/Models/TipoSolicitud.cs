@@ -11,7 +11,7 @@ public partial class TipoSolicitud
 
     public string Glosa { get; set; } = null!;
 
-    public virtual ICollection<Especificacion> Especificacions { get; set; } = new List<Especificacion>();
+    public virtual ICollection<Especificacion> Especificaciones { get; set; } = new List<Especificacion>();
 
-    public virtual ICollection<Solicitud> Solicituds { get; set; } = new List<Solicitud>();
+    public virtual ICollection<Solicitud> Solicitudes { get; set; } = new List<Solicitud>();
 }

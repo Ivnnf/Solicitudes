@@ -1,5 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ServerSolicitudes.Models;
+using ServerSolicitudes.Models.DTO;
+using ServerSolicitudes.Models.UsuarioDTO;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ServerSolicitudes.Controllers
@@ -16,17 +20,41 @@ namespace ServerSolicitudes.Controllers
             _context = context;
         }
 
-        // Este método maneja las solicitudes GET a api/usuario/{id}
         [HttpGet("{id}")]
         public async Task<IActionResult> GetUsuarioById(int id)
         {
-            var user = await _context.Usuarios.FindAsync(id);
-            if (user == null)
+            try
             {
-                return NotFound();
+                var userDto = await _context.Usuarios
+                    .Where(s => s.IdUsuario == id)
+                    .Select(s => new UsuarioDTO
+                    {
+                        IdUsuario = s.IdUsuario,
+                        NombreCompleto = s.NombreCompleto,
+                        NombreUsuario = s.NombreUsuario,
+                        Correo = s.Correo,
+                        IdTipoUsuario = s.IdTipoUsuario,
+                        TipoUsuarioNombre = s.IdTipoUsuarioNavigation.Glosa
+                    })
+                    .ToListAsync();
+
+                if (userDto.Count==0)
+                {
+                    return NotFound();
+                }
+
+
+
+                return Ok(userDto[0]);
             }
-            return Ok(user);
+            catch (Exception ex)
+            {
+                // Log the exception (ex) as needed
+                return StatusCode(500, "Internal server error");
+            }
         }
+
+
 
 
     }

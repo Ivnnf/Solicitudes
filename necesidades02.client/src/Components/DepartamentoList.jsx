@@ -8,7 +8,6 @@ const DepartamentoList = ({ selectedOptionDep, setSelectedOptionDep }) => {
     useEffect(() => {
         const fetchDepartamentos = async () => {
             try {
-                // Asegúrate de que la URL es correcta y que la API está devolviendo los datos correctos
                 const response = await axios.get('http://localhost:8081/api/departamento');
                 setDepartamentos(response.data);
             } catch (error) {

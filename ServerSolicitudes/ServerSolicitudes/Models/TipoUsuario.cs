@@ -1,16 +1,21 @@
-﻿
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ServerSolicitudes.Models;
-
-public partial class TipoUsuario
+namespace ServerSolicitudes.Models
 {
-    [Column("Id_Tipo_Usuario")]
-    public int IdTipoUsuario { get; set; }
+    [Table("TipoUsuario")]
+    public partial class TipoUsuario
+    {
+        [Key]
+        [Column("Id_Tipo_Usuario")]
+        public int IdTipoUsuario { get; set; }
 
-    public string Glosa { get; set; } = null!;
+        [Column("Glosa")]
+        [StringLength(50)]
+        public string Glosa { get; set; } = string.Empty;
 
-    public virtual ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();
+        // Propiedad de navegación para relacionar con Usuarios
+        public virtual ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();
+    }
 }
