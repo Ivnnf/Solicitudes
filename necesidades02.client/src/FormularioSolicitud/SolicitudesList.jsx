@@ -1,4 +1,3 @@
-// src/SolicitudesList.jsx
 import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { CardHeader, Container, Row, Col, Card, CardBody } from "reactstrap";
@@ -42,7 +41,7 @@ const SolicitudesList = ({ userId }) => {
                         </CardHeader>
                         <CardBody>
                             <hr />
-                            <TablaSolicitud data={solicitudes} onDelete={handleDelete} />
+                            <TablaSolicitud data={solicitudes} onDelete={handleDelete} onUpdate={mostrarSolicitudes} />
                         </CardBody>
                     </Card>
                 </Col>

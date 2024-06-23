@@ -30,7 +30,7 @@ const EditarSolicitudForm = ({ solicitud, onClose, onSuccess }) => {
     return (
         <form onSubmit={handleSubmit}>
             <div>
-                <label>Tipo de Solicitud</label>
+                <label>Tipo de Solicitudes</label>
                 <input type="text" name="IdTipoSolicitud" value={formData.idTipoSolicitud} onChange={handleChange} />
             </div>
             <div>
@@ -50,7 +50,7 @@ const EditarSolicitudForm = ({ solicitud, onClose, onSuccess }) => {
                 <input type="text" name="Descripcion" value={formData.descripcion} onChange={handleChange} />
             </div>
             
-            <button type="submit">Guardar</button>
+            <button type="submit">Guardarrrrrrrrr</button>
 
 
             <button type="button" onClick={onClose}>Cancelar</button>

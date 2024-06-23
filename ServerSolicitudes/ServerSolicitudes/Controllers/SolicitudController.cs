@@ -6,18 +6,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using ServerSolicitudes.Models;
 using ServerSolicitudes.Models.DTO;
+using Microsoft.Extensions.Logging;
 
 namespace ServerSolicitudes.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class SolicitudController : ControllerBase
+    
+
     {
         private readonly NecesidadesContext _context;
+        private readonly ILogger<SolicitudController> _logger;
 
-        public SolicitudController(NecesidadesContext context)
+        public SolicitudController(NecesidadesContext context, ILogger<SolicitudController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         // GET: api/solicitud/usuario/{userId}
@@ -97,54 +102,89 @@ namespace ServerSolicitudes.Controllers
 
 
         // PUT: api/solicitud/editar/{id}
-        [HttpPut("editar/{id}")]
-        public async Task<IActionResult> Editar(int id, [FromBody] SolicitudDTOs solicitudDTO)
+        [HttpPut("usuario/editar/{id}")]
+        public async Task<IActionResult> EditarSolicitud(int id, [FromBody] SolicitudDTOs solicitudDTO)
         {
-            var solicitud = await _context.Solicitudes
-                .Include(s => s.IdUsuarioNavigation)
-                .FirstOrDefaultAsync(s => s.IdSolicitud == id);
-
-            if (solicitud == null)
+            if (solicitudDTO == null || id != solicitudDTO.IdSolicitud)
             {
-                return NotFound("Solicitud no encontrada.");
+                return BadRequest("Datos inválidos o IDs no coinciden.");
             }
 
-            solicitud.IdTipoSolicitud = solicitudDTO.IdTipoSolicitud;
-            solicitud.IdEspecificacion = solicitudDTO.IdEspecificacion;
-            solicitud.IdEquipEspec = solicitudDTO.IdEquipEspec;
-            solicitud.Cantidad = solicitudDTO.Cantidad;
-            solicitud.Descripcion = solicitudDTO.Descripcion;
-            solicitud.Fecha = solicitudDTO.Fecha;
-            solicitud.NombreSolicitante = solicitudDTO.NombreSolicitante;
-            solicitud.IdUnidadPrincipal = solicitudDTO.IdUnidadPrincipal;
-            solicitud.IdDepartamento = solicitudDTO.IdDepartamento;
-            solicitud.IdSubDepartamento = solicitudDTO.IdSubDepartamento;
-            solicitud.IdEstado = solicitudDTO.IdEstado;
+            try
+            {
+                var solicitud = await _context.Solicitudes
+                    .FirstOrDefaultAsync(s => s.IdSolicitud == id);
 
-            _context.Solicitudes.Update(solicitud);
-            await _context.SaveChangesAsync();
+                if (solicitud == null)
+                {
+                    return NotFound("Solicitud no encontrada.");
+                }
 
-            return Ok(new { message = "Solicitud actualizada con éxito." });
+                if (solicitud.IdEstado == 2)
+                {
+                    return BadRequest("No se puede editar una solicitud que ya ha sido enviada.");
+                }
+
+                // Actualizar el estado si es diferente y válido
+                if (solicitudDTO.IdEstado != solicitud.IdEstado && solicitudDTO.IdEstado == 2)
+                {
+                    solicitud.IdEstado = solicitudDTO.IdEstado;
+                }
+                else
+                {
+                    // Actualizar los campos de la solicitud
+                    solicitud.IdTipoSolicitud = solicitudDTO.IdTipoSolicitud;
+                    solicitud.IdEspecificacion = solicitudDTO.IdEspecificacion;
+                    solicitud.IdEquipEspec = solicitudDTO.IdEquipEspec;
+                    solicitud.Cantidad = solicitudDTO.Cantidad;
+                    solicitud.Descripcion = solicitudDTO.Descripcion ?? string.Empty;
+                    solicitud.Fecha = solicitudDTO.Fecha;
+                    solicitud.NombreSolicitante = solicitudDTO.NombreSolicitante ?? string.Empty;
+                    solicitud.IdUsuario = solicitudDTO.IdUsuario;
+                    solicitud.IdUnidadPrincipal = solicitudDTO.IdUnidadPrincipal;
+                    solicitud.IdDepartamento = solicitudDTO.IdDepartamento;
+                    solicitud.IdSubDepartamento = solicitudDTO.IdSubDepartamento;
+                }
+
+                _context.Solicitudes.Update(solicitud);
+                await _context.SaveChangesAsync();
+
+                return Ok(new { message = "Solicitud actualizada con éxito." });
+            }
+            catch (Exception ex)
+            {
+                // Registrar la excepción
+                _logger.LogError(ex, "Ocurrió un error al actualizar la solicitud.");
+                return StatusCode(500, "Error interno del servidor");
+            }
+        }
+
+        // PUT: api/solicitud/eliminar/{id}
+        [HttpDelete("eliminar/{id}")]
+        public async Task<IActionResult> EliminarSolicitud(int id)
+        {
+            try
+            {
+                var solicitud = await _context.Solicitudes.FindAsync(id);
+                if (solicitud == null)
+                {
+                    return NotFound("Solicitud no encontrada.");
+                }
+
+                _context.Solicitudes.Remove(solicitud);
+                await _context.SaveChangesAsync();
+
+                return Ok(new { message = "Solicitud eliminada con éxito." });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Ocurrió un error al eliminar la solicitud con ID {id}.", id);
+                return StatusCode(500, "Error interno del servidor");
+            }
         }
 
 
-        // DELETE: api/solicitud/eliminar/{id}
-        [HttpDelete("eliminar/{id:int}")]
-        public async Task<IActionResult> Eliminar(int id)
-        {
-            var solicitud = await _context.Solicitudes
-                .FirstOrDefaultAsync(s => s.IdSolicitud == id);
 
-            if (solicitud == null)
-            {
-                return NotFound("Solicitud no encontrada.");
-            }
-
-            _context.Solicitudes.Remove(solicitud);
-            await _context.SaveChangesAsync();
-
-            return Ok(new { message = "Solicitud eliminada con éxito." });
-        }
 
     }
 }
