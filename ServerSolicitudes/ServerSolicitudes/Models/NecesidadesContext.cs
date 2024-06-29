@@ -146,6 +146,7 @@ namespace ServerSolicitudes.Models
             modelBuilder.Entity<Solicitud>(entity =>
             {
                 entity.HasKey(e => e.IdSolicitud);
+                entity.Property(e => e.IdSolicitud).ValueGeneratedOnAdd();
 
                 entity.Property(e => e.NombreSolicitante).HasMaxLength(100).HasColumnName("Nombre_Solicitante");
                 entity.Property(e => e.Descripcion).HasMaxLength(255).HasColumnName("Descripcion");

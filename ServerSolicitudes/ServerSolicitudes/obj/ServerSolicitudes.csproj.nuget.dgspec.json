@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\ServerSolicitudes.csproj": {}
+    "C:\\Users\\iftam\\source\\repos\\Solicitudes\\ServerSolicitudes\\ServerSolicitudes\\ServerSolicitudes.csproj": {}
   },
   "projects": {
-    "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\ServerSolicitudes.csproj": {
+    "C:\\Users\\iftam\\source\\repos\\Solicitudes\\ServerSolicitudes\\ServerSolicitudes\\ServerSolicitudes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\ServerSolicitudes.csproj",
+        "projectUniqueName": "C:\\Users\\iftam\\source\\repos\\Solicitudes\\ServerSolicitudes\\ServerSolicitudes\\ServerSolicitudes.csproj",
         "projectName": "ServerSolicitudes",
-        "projectPath": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\ServerSolicitudes.csproj",
+        "projectPath": "C:\\Users\\iftam\\source\\repos\\Solicitudes\\ServerSolicitudes\\ServerSolicitudes\\ServerSolicitudes.csproj",
         "packagesPath": "C:\\Users\\iftam\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\iftam\\source\\repos\\Necesidades02\\ServerSolicitudes\\ServerSolicitudes\\obj\\",
+        "outputPath": "C:\\Users\\iftam\\source\\repos\\Solicitudes\\ServerSolicitudes\\ServerSolicitudes\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\iftam\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,6 +45,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.5, )"

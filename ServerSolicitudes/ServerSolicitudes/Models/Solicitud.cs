@@ -11,6 +11,7 @@ namespace ServerSolicitudes.Models
     public partial class Solicitud
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("Id_Solicitud")]
         public int IdSolicitud { get; set; }
 
@@ -18,7 +19,7 @@ namespace ServerSolicitudes.Models
         public int IdTipoSolicitud { get; set; }
 
         [Column("Id_Especificacion")]
-        public int IdEspecificacion { get; set; }
+        public int? IdEspecificacion { get; set; }  
 
         [Column("Id_Equip_Espec")]
         public int? IdEquipEspec { get; set; }

@@ -69,36 +69,58 @@ namespace ServerSolicitudes.Controllers
         }
 
 
+       
         // POST: api/solicitud/guardar
         [HttpPost("guardar")]
-        public async Task<IActionResult> Guardar([FromBody] Solicitud request)
+        public async Task<IActionResult> Guardar([FromBody] SolicitudDTOs solicitudDTO)
         {
-            if (request == null || !ModelState.IsValid)
+            if (solicitudDTO == null || !ModelState.IsValid)
             {
                 return BadRequest("Datos inválidos.");
             }
 
-            if (request.IdTipoSolicitud == 0 ||
-                request.IdEspecificacion == 0 ||
-                request.IdUsuario == 0 ||
-                request.Cantidad <= 0 ||
-                string.IsNullOrEmpty(request.Descripcion))
+            // Log para verificar los datos recibidos
+            Console.WriteLine($"Datos recibidos: {System.Text.Json.JsonSerializer.Serialize(solicitudDTO)}");
+
+            // Validaciones básicas
+            if (solicitudDTO.IdTipoSolicitud == 0 || solicitudDTO.IdUsuario == 0 || solicitudDTO.Cantidad <= 0 || string.IsNullOrEmpty(solicitudDTO.Descripcion))
             {
                 return BadRequest("Faltan datos o son inválidos.");
             }
 
             try
             {
-                await _context.Solicitudes.AddAsync(request);
+                // Crear el objeto Solicitud desde el DTO
+                var solicitud = new Solicitud
+                {
+                    IdTipoSolicitud = solicitudDTO.IdTipoSolicitud,
+                    IdEspecificacion = solicitudDTO.IdEspecificacion,
+                    IdEquipEspec = solicitudDTO.IdEquipEspec,
+                    IdUsuario = solicitudDTO.IdUsuario,
+                    Cantidad = solicitudDTO.Cantidad,
+                    Descripcion = solicitudDTO.Descripcion,
+                    Fecha = solicitudDTO.Fecha != DateTime.MinValue ? solicitudDTO.Fecha : DateTime.UtcNow,
+                    NombreSolicitante = solicitudDTO.NombreSolicitante,
+                    IdUnidadPrincipal = solicitudDTO.IdUnidadPrincipal,
+                    IdDepartamento = solicitudDTO.IdDepartamento,
+                    IdSubDepartamento = solicitudDTO.IdSubDepartamento,
+                    IdEstado = solicitudDTO.IdEstado
+                };
+
+                // Guardar la solicitud
+                await _context.Solicitudes.AddAsync(solicitud);
                 await _context.SaveChangesAsync();
 
                 return Ok(new { message = "Solicitud guardada con éxito." });
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, $"Error al guardar la solicitud: {ex.Message}");
+                var innerExceptionMessage = ex.InnerException?.Message ?? ex.Message;
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error al guardar la solicitud: {innerExceptionMessage}");
             }
         }
+
+
 
 
         // PUT: api/solicitud/editar/{id}
@@ -112,8 +134,7 @@ namespace ServerSolicitudes.Controllers
 
             try
             {
-                var solicitud = await _context.Solicitudes
-                    .FirstOrDefaultAsync(s => s.IdSolicitud == id);
+                var solicitud = await _context.Solicitudes.FirstOrDefaultAsync(s => s.IdSolicitud == id);
 
                 if (solicitud == null)
                 {
@@ -158,6 +179,8 @@ namespace ServerSolicitudes.Controllers
                 return StatusCode(500, "Error interno del servidor");
             }
         }
+
+
 
         // PUT: api/solicitud/eliminar/{id}
         [HttpDelete("eliminar/{id}")]
