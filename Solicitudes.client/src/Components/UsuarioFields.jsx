@@ -18,12 +18,13 @@ const UsuarioFields = ({ userId }) => {
         nombreCompleto: '',
         correo: '',
         NombreSolicitante: '',
-        cantidad: '0',
-        descripcion: '',
+        cantidad: '', // Inicializa cantidad como cadena vacía
+        descripcion: '', // Inicializa descripción como una cadena vacía
     });
 
     const [selectedOption, setSelectedOption] = useState('');
     const [selectedDepartamento, setSelectedDepartamento] = useState('');
+    const [selectedSubDepartamento, setSelectedSubDepartamento] = useState('');
     const [hasSubDepartamentos, setHasSubDepartamentos] = useState(false);
     const [selectedTipoSolicitud, setSelectedTipoSolicitud] = useState(null);
     const [selectedEspecificacion, setSelectedEspecificacion] = useState(null);
@@ -116,52 +117,35 @@ const UsuarioFields = ({ userId }) => {
         console.log("Equipamiento seleccionado:", selectedEquipamiento);
 
         // Validaciones
-        if (!formData.NombreSolicitante.trim()) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'El campo "Nombre del Solicitante" es obligatorio.',
-            });
-            return;
+        const errors = [];
+
+        if (!formData.NombreSolicitante || !formData.NombreSolicitante.trim()) {
+            errors.push('El campo "Nombre del Solicitante" es obligatorio.');
         }
-        if (parseInt(formData.cantidad, 10) <= 0) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'El campo "Cantidad" debe ser mayor que 0.',
-            });
-            return;
+        if (formData.cantidad === '' || parseInt(formData.cantidad, 10) <= 0 || isNaN(parseInt(formData.cantidad, 10))) {
+            errors.push('El campo "Cantidad" es obligatorio y debe ser mayor que 0.');
         }
-        if (!formData.descripcion.trim()) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'El campo "Descripción" es obligatorio.',
-            });
-            return;
+        if (!formData.descripcion || !formData.descripcion.trim()) {
+            errors.push('El campo "Descripción" es obligatorio.');
         }
         if (!selectedOption) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'Por favor seleccione una Unidad Principal.',
-            });
-            return;
+            errors.push('Por favor seleccione una Unidad Principal.');
         }
         if (!selectedDepartamento) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'Por favor seleccione un Departamento.',
-            });
-            return;
+            errors.push('Por favor seleccione un Departamento.');
+        }
+        if (hasSubDepartamentos && !selectedSubDepartamento) {
+            errors.push('Por favor seleccione un SubDepartamento.');
+        }
+        if (!selectedTipoSolicitud || (selectedTipoSolicitud.glosa.toUpperCase() !== 'OTRO' && (!selectedEspecificacion || !selectedEquipamiento))) {
+            errors.push('Por favor complete todas las selecciones.');
         }
 
-        if (!selectedTipoSolicitud || (selectedTipoSolicitud.glosa.toUpperCase() !== 'OTRO' && (!selectedEspecificacion || !selectedEquipamiento))) {
+        if (errors.length > 0) {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Por favor complete todas las selecciones.',
+                html: errors.join('<br/>'),
             });
             return;
         }
@@ -178,9 +162,9 @@ const UsuarioFields = ({ userId }) => {
             Descripcion: formData.descripcion.trim(),
             Fecha: new Date().toISOString(),
             NombreSolicitante: formData.NombreSolicitante,
-            IdUnidadPrincipal: selectedOption,
-            IdDepartamento: selectedDepartamento,
-            IdSubDepartamento: hasSubDepartamentos ? selectedDepartamento : null,
+            IdUnidadPrincipal: parseInt(selectedOption, 10), // Convertir a número
+            IdDepartamento: parseInt(selectedDepartamento, 10), // Convertir a número
+            IdSubDepartamento: hasSubDepartamentos ? parseInt(selectedSubDepartamento, 10) : null, // Convertir a número si es necesario
             IdEstado: 1,
             EstadoNombre: 'Pendiente'
         };
@@ -284,22 +268,23 @@ const UsuarioFields = ({ userId }) => {
             </div>
             <UnidadPrincipalList selectedOptionDep={selectedOption} setSelectedOptionDep={setSelectedOption} />
             {selectedOption && (
-                <DepartamentoList IdUnidadPrincipal={selectedOption} setSelectedDepartamento={setSelectedDepartamento} />
+                <DepartamentoList IdUnidadPrincipal={parseInt(selectedOption, 10)} setSelectedDepartamento={setSelectedDepartamento} selectedDepartamento={selectedDepartamento} />
             )}
             {selectedDepartamento && (
                 <>
                     {hasSubDepartamentos ? (
-                        <SubDepartamentoList idDepartamento={selectedDepartamento} />
+                        <SubDepartamentoList idDepartamento={parseInt(selectedDepartamento, 10)} setSelectedSubDepartamento={setSelectedSubDepartamento} selectedSubDepartamento={selectedSubDepartamento} />
                     ) : (
                         <p>No hay subdepartamentos para este departamento.</p>
                     )}
                 </>
             )}
-            <TipoSolicitudList onSelect={onSelectedTipoSolicitud} />
+            <TipoSolicitudList onSelect={onSelectedTipoSolicitud} selectedTipoSolicitud={selectedTipoSolicitud} />
             {selectedTipoSolicitud && selectedTipoSolicitud.glosa.toUpperCase() !== 'OTRO' && (
                 <EspecificacionesList
                     idTipoSolicitud={selectedTipoSolicitud.idTipoSolicitud}
                     onSelect={onSelectedEspecificacion}
+                    selectedEspecificacion={selectedEspecificacion}
                 />
             )}
             {selectedEspecificacion && selectedTipoSolicitud && selectedTipoSolicitud.glosa.toUpperCase() !== 'OTRO' && (
@@ -310,6 +295,7 @@ const UsuarioFields = ({ userId }) => {
                     descripcion={formData.descripcion}
                     onCantidadChange={handleCantidadChange}
                     onDescripcionChange={handleDescripcionChange}
+                    selectedEquipamiento={selectedEquipamiento}
                 />
             )}
             {selectedTipoSolicitud && selectedTipoSolicitud.glosa.toUpperCase() === 'OTRO' && (
@@ -320,8 +306,24 @@ const UsuarioFields = ({ userId }) => {
                     onDescripcionChange={handleDescripcionChange}
                 />
             )}
-            <button className="btn-06 mt-5" onClick={handleSubmit}>
-                <b>SOLICITAR</b>
+
+            <button className='btn-08 mt-5' onClick={handleSubmit}>
+                <div className="svg-wrapper-1" >
+                    <div className="svg-wrapper">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            width="30"
+                            height="30"
+                            className="icon"
+                        >
+                            <path
+                                d="M22,15.04C22,17.23 20.24,19 18.07,19H5.93C3.76,19 2,17.23 2,15.04C2,13.07 3.43,11.44 5.31,11.14C5.28,11 5.27,10.86 5.27,10.71C5.27,9.33 6.38,8.2 7.76,8.2C8.37,8.2 8.94,8.43 9.37,8.8C10.14,7.05 11.13,5.44 13.91,5.44C17.28,5.44 18.87,8.06 18.87,10.83C18.87,10.94 18.87,11.06 18.86,11.17C20.65,11.54 22,13.13 22,15.04Z"
+                            ></path>
+                        </svg>
+                    </div>
+                </div>
+                <span>Guardar</span>
             </button>
         </div>
     );

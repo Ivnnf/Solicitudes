@@ -25,7 +25,7 @@ const DepartamentoList = ({ IdUnidadPrincipal, setSelectedDepartamento, selected
     }, [IdUnidadPrincipal]);
 
     const handleChange = (event) => {
-        setSelectedDepartamento(event.target.value);
+        setSelectedDepartamento(Number(event.target.value)); // Asegurarse de que el valor sea un número
     };
 
     return (
@@ -34,7 +34,7 @@ const DepartamentoList = ({ IdUnidadPrincipal, setSelectedDepartamento, selected
             {isLoading ? (
                 <p>Cargando departamentos...</p>
             ) : (
-                <select id="Departamento" name="Departamento" className="form-control" value={selectedDepartamento} onChange={handleChange}>
+                <select id="Departamento" name="Departamento" className="form-control" value={selectedDepartamento || ''} onChange={handleChange}>
                     <option value="">Seleccione un departamento</option>
                     {departamentos.map(departamento => (
                         <option key={departamento.idDepartamento} value={departamento.idDepartamento}>
@@ -50,7 +50,7 @@ const DepartamentoList = ({ IdUnidadPrincipal, setSelectedDepartamento, selected
 DepartamentoList.propTypes = {
     IdUnidadPrincipal: PropTypes.number.isRequired,
     setSelectedDepartamento: PropTypes.func.isRequired,
-    selectedDepartamento: PropTypes.string.isRequired,
+    selectedDepartamento: PropTypes.oneOfType([PropTypes.number, PropTypes.string]), // Aceptar número o string
 };
 
 export default DepartamentoList;

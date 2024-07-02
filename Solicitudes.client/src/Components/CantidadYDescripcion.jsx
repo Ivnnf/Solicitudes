@@ -1,33 +1,49 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const CantidadYDescripcion = ({ cantidad, descripcion, onCantidadChange, onDescripcionChange }) => {
+    const handleCantidadChange = (event) => {
+        onCantidadChange(event.target.value);
+    };
+
+    const handleDescripcionChange = (event) => {
+        onDescripcionChange(event.target.value);
+    };
+
     return (
         <div>
             <div className="form-group">
                 <label htmlFor="Cantidad">Cantidad:</label>
                 <input
                     type="number"
-                    id="Cantidad"
                     className="form-control"
+                    id="Cantidad"
+                    name="cantidad"
                     value={cantidad}
-                    onChange={e => onCantidadChange(e.target.value)}
+                    onChange={handleCantidadChange}
                     required
                 />
             </div>
-
             <div className="form-group">
-                <label htmlFor="Descripcion">Comentarios adicionales:</label>
+                <label htmlFor="Descripcion">Descripción:</label>
                 <textarea
-                    id="Descripcion"
                     className="form-control"
+                    id="Descripcion"
+                    name="descripcion"
                     value={descripcion}
-                    onChange={e => onDescripcionChange(e.target.value)}
+                    onChange={handleDescripcionChange}
                     required
-                ></textarea>
+                />
             </div>
         </div>
     );
 };
 
-export default CantidadYDescripcion;
+CantidadYDescripcion.propTypes = {
+    cantidad: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+    descripcion: PropTypes.string.isRequired,
+    onCantidadChange: PropTypes.func.isRequired,
+    onDescripcionChange: PropTypes.func.isRequired,
+};
 
+export default CantidadYDescripcion;
